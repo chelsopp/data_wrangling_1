@@ -159,9 +159,15 @@ pulse_df =
 
 ## why does my professor hate read.csv so much??
 
-it does not print well so always use read_csv
+it does not print well so always use read_csv.
 
 ``` r
 litters_df_base = 
   read.csv("data_import_examples/FAS_litters.csv")
+```
+
+## what about data exporting??
+
+``` r
+write_csv(fotr_df, "data_import_examples/fotr.csv")
 ```
