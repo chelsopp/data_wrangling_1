@@ -1,21 +1,55 @@
 ---
-title: "Simple document"
-output: html_document
+title: "Data Import"
+output: github_document
 ---
 
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
 ```{r}
-samp = rnorm(100)
-length(samp)
+library(tidyverse)
 ```
 
-# Section 2
+let's import a dataset.
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+```{r}
+litters_df = 
+  read_csv("data_import_examples/FAS_litters.csv")
+```
+
+look at my data!
+```{r}
+names(litters_df)
+```
+
+update the names in `litters_df` aka clean any spaces, extra special characters, apply uppercase and lowercase formatting.
+note - janitor::clean_names means you are taking the clean_names function from the janitor package without having to load the whole package.
+```{r}
+litters_df = 
+  janitor::clean_names(litters_df)
+```
+
+look at my data again! 
+note - if you want to look at the data set in a separate window once, type view(dataset name) in console pane below.
+```{r}
+litters_df
+```
+
+
+##Fix the missingness
+
+```{r}
+litters_df = 
+  read_csv("data_import_examples/FAS_litters.csv", na = c("NA", ".", " "))
+```
+
+let's import Pups dataset.
+
+```{r}
+pups_df = 
+  read_csv("data_import_examples/FAS_pups.csv",
+  skip = 3,
+  na = c("NA", ".", " ")
+  )
+
+
+pups_df = 
+  janitor::clean_names(pups_df)
+```
