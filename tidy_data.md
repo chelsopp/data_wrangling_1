@@ -42,7 +42,7 @@ pulse_df =
     values_to = "bdi_score",
     names_prefix = "bdi_score_"
  ) %>% 
-mutate(visit = replace(visit, visit == "bl", "00")) %>% 
+mutate(visit = replace(visit, visit == "bl", "00m")) %>% 
 relocate(id, visit)
 ```
 
