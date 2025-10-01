@@ -12,7 +12,7 @@ lets import the datasets.
 
 ```{r}
 litters_df = 
- read_csv("p8105/lecture_code/data_import_examples/FAS_litters.csv", na = c("NA", ".", " "))
+ read_csv("p8105/lecture_code/data_import_examples/FAS_litters.csv", skip = 3,  na = c("NA", ".", " "))
 litters_df =
   janitor::clean_names(litters_df)
 
